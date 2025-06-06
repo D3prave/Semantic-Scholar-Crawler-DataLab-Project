@@ -16,7 +16,7 @@ A distributed crawler for harvesting academic citation data from Semantic Schola
 - [API & Interfaces](#-api--interfaces)
 - [Crawler Script (`crawler.py`)](#-crawlerpy)
 - [Dashboard Script (`dashboard.py`)](#-dashboardpy)
-- [Project Structure](#-projeect-structure)
+- [Project Structure](#-project-structure)
 
 ---
 
