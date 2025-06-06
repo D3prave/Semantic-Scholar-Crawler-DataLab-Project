@@ -133,9 +133,12 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 ---
 
 ## 📁 Project Structure
-
-<pre> . ├── crawler.py # Main citation crawler script ├── dashboard.py # FastAPI live dashboard with system monitoring ├── requirements.txt # All Python dependencies ├── .env.example # Example env file for API key and DB creds ├── README.md # Project documentation ├── data/ │ └── seeds.txt # (Optional) File with seed paper IDs ├── scripts/ │ └── init_db.sql # (Optional) SQL script to set up DB tables ├── logs/ │ └── crawler.log # (Optional) Log output from crawler └── docs/ └── architecture_diagram.png # (Optional) Visual diagram for documentation </pre>
-
+```
+.
+├── crawler.py
+├── dashboard.py
+└── requirements.txt
+```
 ---
 
 ## ▶️ How to Run
