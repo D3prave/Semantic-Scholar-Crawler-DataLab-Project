@@ -131,8 +131,8 @@ Base URL: https://api.semanticscholar.org/graph/v1
 - processed_bloom	- RedisBloom filter to avoid duplicate paper IDs
 
 ### 🗃️ PostgreSQL
-- processed_papers	Stores paper_id and its fields_of_study
-- citations	Stores directed edges (citing_id → cited_id)
+- processed_papers - Stores paper_id and its fields_of_study
+- citations - Stores directed edges (citing_id → cited_id)
 
 ### 🌐 FastAPI Dashboard
 - GET - HTML dashboard UI
