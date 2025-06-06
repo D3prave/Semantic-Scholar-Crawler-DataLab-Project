@@ -26,7 +26,7 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## 🛠️ Technologies Used
+## 🤖 Technologies Used
 
 - **Python 3**
 - **PostgreSQL** (`psycopg2`, `asyncpg`)
@@ -39,7 +39,7 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## 🏗️ Architecture
+## 📐 Architecture
 
                    +-----------------------+
                    |  Semantic Scholar API |
@@ -92,7 +92,7 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
-## ▶️ How to Run
+## ▶ How to Run
 
 ### 🔧 Requirements
 
