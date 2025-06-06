@@ -98,12 +98,12 @@ The main script that handles fetching, deduplication, citation parsing, and task
 
 ### 🧩 Key Components
 
-send_request: Rate-limited API requests with retry logic
-fetch_references_paginated: Handles large reference sets (>1000)
-filter_new_ids: Bloom filter + SQL fallback deduplication
-safe_insert_citations: Robust insert with deadlock handling
-mark_processed: Marks paper as crawled in both Redis and SQL
-main(): Main crawl loop with seed support, resume, and batching
+- send_request: Rate-limited API requests with retry logic
+- fetch_references_paginated: Handles large reference sets (>1000)
+- filter_new_ids: Bloom filter + SQL fallback deduplication
+- safe_insert_citations: Robust insert with deadlock handling
+- mark_processed: Marks paper as crawled in both Redis and SQL
+- main(): Main crawl loop with seed support, resume, and batching
 
 ---
 
@@ -113,19 +113,22 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 
 ### 📡 Endpoints
 
-GET - HTML Dashboard UI
-GET /status - Returns crawler metrics as JSON
-📈 Metrics Shown
+- GET - HTML Dashboard UI
+- GET /status - Returns crawler metrics as JSON
+  
+### 📈 Metrics Shown
+
 ✅ Number of processed papers
 🔗 Citation edges discovered
 🧠 Memory pressure (macOS local)
 🧠 RAM usage on remote servers via SSH
 ⚡ Papers/second & 📈 papers/hour
 🕒 Estimated time per 1000 papers
+
 ### 🧵 Background Tasks
 
-remote_ram_background_updater() – polls RAM usage every 60s
-speed_background_updater() – updates crawl rate every 15s
+- remote_ram_background_updater() – polls RAM usage every 60s
+- speed_background_updater() – updates crawl rate every 15s
 
 ---
 
@@ -173,15 +176,15 @@ Base URL: https://api.semanticscholar.org/graph/v1
 - POST /paper/batch: For batched paper metadata
 
 ### 🔁 Redis
-paper_queue	- FIFO queue of papers to crawl
-processed_bloom	- RedisBloom filter to avoid duplicate paper IDs
+- paper_queue	- FIFO queue of papers to crawl
+- processed_bloom	- RedisBloom filter to avoid duplicate paper IDs
 
 ### 🗃️ PostgreSQL
-processed_papers	Stores paper_id and its fields_of_study
-citations	Stores directed edges (citing_id → cited_id)
+- processed_papers	Stores paper_id and its fields_of_study
+- citations	Stores directed edges (citing_id → cited_id)
 
 ### 🌐 FastAPI Dashboard
-GET - HTML dashboard UI
-GET /status -	Returns system stats in JSON (see below)
+- GET - HTML dashboard UI
+- GET /status -	Returns system stats in JSON (see below)
 
 ---
