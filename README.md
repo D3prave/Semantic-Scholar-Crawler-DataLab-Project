@@ -1,4 +1,4 @@
-In Progress
+# In Progress
 
 # Academic Citation Crawler & Dashboard
 
@@ -9,14 +9,14 @@ A distributed crawler for harvesting academic citation data from Semantic Schola
 ## 📚 Table of Contents
 
 - [Overview](#-overview)
-- [Technologies Used](#technologies-used)
-- [Architecture](#architecture)
-- [Features](#features)
-- [How to Run](#how-to-run)
-- [API & Interfaces](#api--interfaces)
-- [Challenges](#challenges)
-- [Crawler Script (`crawler.py`)](#crawlerpy)
-- [Dashboard Script (`dashboard.py`)](#dashboardpy)
+- [Technologies Used](#-technologies-used)
+- [Architecture](#-architecture)
+- [Features](#-features)
+- [How to Run](#-how-to-run)
+- [API & Interfaces](#-api--interfaces)
+- [Crawler Script (`crawler.py`)](#-crawlerpy)
+- [Dashboard Script (`dashboard.py`)](#-dashboardpy)
+- [Project Structure](#-projeect-structure)
 
 ---
 
@@ -92,6 +92,52 @@ This project implements a robust academic crawler to collect citation data via t
 
 ---
 
+## ▶️ How to Run
+
+### 🔧 Requirements
+
+- PostgreSQL and Redis running locally
+- Semantic Scholar API Key (`API_KEY`)
+- Python packages: see `requirements.txt`
+
+### 🚀 Commands
+
+Start a **fresh** crawl with seed IDs:
+```bash
+python crawler.py --fresh <seed_id1> <seed_id2>
+```
+Resume a previously interrupted crawl:
+```bash
+python crawler.py --resume
+```
+Run the **Dashboard** server:
+```bash
+uvicorn dashboard:app --reload
+```
+
+---
+
+## 🔌 API & Interfaces
+
+### 📡 Semantic Scholar API
+Base URL: https://api.semanticscholar.org/graph/v1
+- GET /paper/{id}/references: For paginated citation lists
+- POST /paper/batch: For batched paper metadata
+
+### 🔁 Redis
+- paper_queue	- FIFO queue of papers to crawl
+- processed_bloom	- RedisBloom filter to avoid duplicate paper IDs
+
+### 🗃️ PostgreSQL
+- processed_papers	Stores paper_id and its fields_of_study
+- citations	Stores directed edges (citing_id → cited_id)
+
+### 🌐 FastAPI Dashboard
+- GET - HTML dashboard UI
+- GET /status -	Returns system stats in JSON (see below)
+
+---
+
 ## 🧪 crawler.py
 
 The main script that handles fetching, deduplication, citation parsing, and task queue management.
@@ -139,50 +185,5 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 ├── dashboard.py
 └── requirements.txt
 ```
----
-
-## ▶️ How to Run
-
-### 🔧 Requirements
-
-- PostgreSQL and Redis running locally
-- Semantic Scholar API Key (`API_KEY`)
-- Python packages: see `requirements.txt`
-
-### 🚀 Commands
-
-Start a **fresh** crawl with seed IDs:
-```bash
-python crawler.py --fresh <seed_id1> <seed_id2>
-```
-Resume a previously interrupted crawl:
-```bash
-python crawler.py --resume
-```
-Run the **Dashboard** server:
-```bash
-uvicorn dashboard:app --reload
-```
-
----
-
-## 🔌 API & Interfaces
-
-### 📡 Semantic Scholar API
-Base URL: https://api.semanticscholar.org/graph/v1
-- GET /paper/{id}/references: For paginated citation lists
-- POST /paper/batch: For batched paper metadata
-
-### 🔁 Redis
-- paper_queue	- FIFO queue of papers to crawl
-- processed_bloom	- RedisBloom filter to avoid duplicate paper IDs
-
-### 🗃️ PostgreSQL
-- processed_papers	Stores paper_id and its fields_of_study
-- citations	Stores directed edges (citing_id → cited_id)
-
-### 🌐 FastAPI Dashboard
-- GET - HTML dashboard UI
-- GET /status -	Returns system stats in JSON (see below)
 
 ---
