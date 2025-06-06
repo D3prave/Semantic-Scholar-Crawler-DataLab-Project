@@ -8,7 +8,7 @@ A distributed crawler for harvesting academic citation data from Semantic Schola
 
 ## 📚 Table of Contents
 
-- [Overview](#📌overview)
+- [Overview](#-overview)
 - [Technologies Used](#technologies-used)
 - [Architecture](#architecture)
 - [Features](#features)
