@@ -99,7 +99,7 @@ This project implements a robust academic crawler to collect citation data via t
 ### 🔧 Requirements
 
 - PostgreSQL and Redis running locally
-- Semantic Scholar API Key (`API_KEY`)
+- Semantic Scholar API Key (`API_KEY`) (can be run without one using public API requests)
 - Python packages: see `requirements.txt`
 
 ### 🚀 Commands
@@ -114,7 +114,7 @@ python crawler.py --resume
 ```
 Run the **Dashboard** server:
 ```bash
-uvicorn dashboard:app --reload
+uvicorn dashboard:app --host xxxx --port xxxx --reload
 ```
 
 ---
