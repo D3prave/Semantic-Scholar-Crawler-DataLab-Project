@@ -118,12 +118,12 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
   
 ### 📈 Metrics Shown
 
-✅ Number of processed papers
-🔗 Citation edges discovered
-🧠 Memory pressure (macOS local)
-🧠 RAM usage on remote servers via SSH
-⚡ Papers/second & 📈 papers/hour
-🕒 Estimated time per 1000 papers
+- ✅ Number of processed papers
+- 🔗 Citation edges discovered
+- 🧠 Memory pressure (macOS local)
+- 🧠 RAM usage on remote servers via SSH
+- ⚡ Papers/second & 📈 papers/hour
+- 🕒 Estimated time per 1000 papers
 
 ### 🧵 Background Tasks
 
@@ -134,12 +134,7 @@ A FastAPI app providing real-time monitoring for crawler performance and system 
 
 ## 📁 Project Structure
 
-.
-├── crawler.py               # Main crawler script
-├── dashboard.py             # Live dashboard interface
-├── requirements.txt         # Python dependencies
-├── README.md
-└── ...
+<pre> . ├── crawler.py # Main citation crawler script ├── dashboard.py # FastAPI live dashboard with system monitoring ├── requirements.txt # All Python dependencies ├── .env.example # Example env file for API key and DB creds ├── README.md # Project documentation ├── data/ │ └── seeds.txt # (Optional) File with seed paper IDs ├── scripts/ │ └── init_db.sql # (Optional) SQL script to set up DB tables ├── logs/ │ └── crawler.log # (Optional) Log output from crawler └── docs/ └── architecture_diagram.png # (Optional) Visual diagram for documentation </pre>
 
 ---
 
