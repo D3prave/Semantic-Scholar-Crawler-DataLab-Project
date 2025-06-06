@@ -1,4 +1,6 @@
-# In Progress
+<h1 align="center">IN PROGRESS</h1>
+
+---
 
 # Academic Citation Crawler & Dashboard
 
